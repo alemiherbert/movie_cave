@@ -1,39 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html class="no-js" lang="">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Cave</title>
-    <style>
-        .body {
-            margin: 0;
-            padding: 0;
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>MovieCave- Online Movies & TV Shows</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        }
+		<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/favicon.png') }}">
+        <!-- Place favicon.ico in the root directory -->
 
-        .error-message {
-            text-align: center;
-            margin-top: 20%;
-            font-family: "Consolas";
-        }
+		<!-- CSS here -->
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fontawesome-all.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/flaticon.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/odometer.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/aos.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/slick.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/default.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/responsive.css') }}">
+    </head>
+    <body>
 
-        .error-message h1 {
-            font-size: 7.5em;
-            margin-bottom: 0.25em;
-        }
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <img src="img/preloader.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- preloader-end -->
 
-        .error-message p {
-            font-size: 1.5em;
-            margin-top: 0;
-        }
-    </style>
-</head>
+		<!-- Scroll-top -->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <i class="fas fa-angle-up"></i>
+        </button>
+        <!-- Scroll-top-end-->
 
-<body>
-    {% block content %}
+        <!-- header-area -->
+        <header>
+            <div id="sticky-header" class="menu-area transparent-header">
+                <div class="container custom-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                            <div class="menu-wrap">
+                                <nav class="menu-nav show">
+                                    <div class="logo">
+                                        <a href="index-2.html">
+{#                                            <img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="Logo">#}
+                                            <h6 class="sub-title wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.8s">Movie Cave</h6>
+                                        </a>
+                                    </div>
+                                    <div class="navbar-wrap main-menu d-none d-lg-flex">
+                                        <ul class="navigation">
+                                            <li class="active menu-item-has-children"><a href="{{ url_for('home_bp.index') }}">Home</a>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="{{ url_for('home_bp.movie') }}">Movie</a>
+                                            </li>
+                                            <li><a href="{{ url_for('home_bp.tv_shows') }}">tv show</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="header-action d-none d-md-block">
+                                        <ul>
+                                            <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="fas fa-search"></i></a></li>
+                                            <li class="header-lang">
+                                                <form action="#">
+                                                    <div class="icon"><i class="flaticon-globe"></i></div>
+                                                    <select id="lang-dropdown">
+                                                        <option value="">En</option>
+                                                        <option value="">Au</option>
+                                                        <option value="">AR</option>
+                                                        <option value="">TU</option>
+                                                    </select>
+                                                </form>
+                                            </li>
+                                            <li class="header-btn"><a href="#" class="btn">Sign In</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
 
-    {% endblock %}
-</body>
+                            <!-- Mobile Menu  -->
+                            <div class="mobile-menu">
+                                <div class="close-btn"><i class="fas fa-times"></i></div>
+
+                                <nav class="menu-box">
+                                    <div class="nav-logo"><a href="index-2.html"><img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="" title=""></a>
+                                    </div>
+                                    <div class="menu-outer">
+                                        <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                                    </div>
+                                    <div class="social-links">
+                                        <ul class="clearfix">
+                                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="menu-backdrop"></div>
+                            <!-- End Mobile Menu -->
+
+                            <!-- Modal Search -->
+                            <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form>
+                                            <input type="text" placeholder="Search here...">
+                                            <button><i class="fas fa-search"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal Search-end -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header-area-end -->
+
+
+        <!-- main-area -->
+        <main>
+
+            {% block content %}
+            {% endblock %}
+
+        </main>
+        <!-- main-area-end -->
+
+
+        <!-- footer-area -->
+        <footer>
+            <div class="footer-top-wrap">
+                <div class="container">
+                    <div class="footer-menu-wrap">
+                        <div class="row align-items-center">
+                            <div class="col-lg-3">
+                                <div class="footer-logo">
+                                    <a href="{{ url_for('home_bp.index') }}"><img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="footer-menu">
+                                    <nav>
+                                        <ul class="navigation">
+                                            <li><a href="{{ url_for('home_bp.index') }}">Home</a></li>
+                                            <li><a href="{{ url_for('home_bp.movie') }}">Movie</a></li>
+                                            <li><a href="{{ url_for('home_bp.tv_shows') }}">tv show</a></li>
+
+                                        </ul>
+                                        <div class="footer-search">
+                                            <form action="#">
+                                                <input type="text" placeholder="Find Favorite Movie">
+                                                <button><i class="fas fa-search"></i></button>
+                                            </form>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="copyright-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="copyright-text">
+                                <p>Copyright &copy; 2023. All Rights Reserved By <a href="{{ url_for('home_bp.index') }}">Movie Cave</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer-area-end -->
+
+
+
+
+
+		<!-- JS here -->
+        <script src="{{ url_for('static', filename = 'js/vendor/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/imagesloaded.pkgd.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/owl.carousel.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/jquery.odometer.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/jquery.appear.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/slick.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/ajax-form.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/wow.min.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/aos.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/plugins.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+    </body>
 
 </html>
