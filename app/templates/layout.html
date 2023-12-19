@@ -59,26 +59,11 @@
                                     </div>
                                     <div class="navbar-wrap main-menu d-none d-lg-flex">
                                         <ul class="navigation">
-                                            <li class="active menu-item-has-children"><a href="#">Home</a>
-                                                <ul class="submenu">
-                                                    <li class="active"><a href="index-2.html">Home</a></li>
-                                                </ul>
+                                            <li class="active menu-item-has-children"><a href="{{ url_for('home_bp.index') }}">Home</a>
                                             </li>
-                                            <li class="menu-item-has-children"><a href="#">Movie</a>
-                                                <ul class="submenu">
-                                                    <li><a href="movie.html">Movie</a></li>
-                                                    <li><a href="movie-details.html">Movie Details</a></li>
-                                                </ul>
+                                            <li class="menu-item-has-children"><a href="{{ url_for('home_bp.movie') }}">Movie</a>
                                             </li>
-                                            <li><a href="tv-show.html">tv show</a></li>
-                                            <li><a href="pricing.html">Pricing</a></li>
-                                            <li class="menu-item-has-children"><a href="#">blog</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Our Blog</a></li>
-                                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">contacts</a></li>
+                                            <li><a href="{{ url_for('home_bp.tv_shows') }}">tv show</a></li>
                                         </ul>
                                     </div>
                                     <div class="header-action d-none d-md-block">
@@ -164,18 +149,17 @@
                         <div class="row align-items-center">
                             <div class="col-lg-3">
                                 <div class="footer-logo">
-                                    <a href="index-2.html"><img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt=""></a>
+                                    <a href="{{ url_for('home_bp.index') }}"><img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-lg-9">
                                 <div class="footer-menu">
                                     <nav>
                                         <ul class="navigation">
-                                            <li><a href="index-2.html">Home</a></li>
-                                            <li><a href="index-2.html">Movie</a></li>
-                                            <li><a href="index-2.html">tv show</a></li>
-                                            <li><a href="index-2.html">pages</a></li>
-                                            <li><a href="pricing.html">Pricing</a></li>
+                                            <li><a href="{{ url_for('home_bp.index') }}">Home</a></li>
+                                            <li><a href="{{ url_for('home_bp.movie') }}">Movie</a></li>
+                                            <li><a href="{{ url_for('home_bp.tv_shows') }}">tv show</a></li>
+
                                         </ul>
                                         <div class="footer-search">
                                             <form action="#">
@@ -188,30 +172,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="footer-quick-link-wrap">
-                        <div class="row align-items-center">
-                            <div class="col-md-7">
-                                <div class="quick-link-list">
-                                    <ul>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Help Center</a></li>
-                                        <li><a href="#">Terms of Use</a></li>
-                                        <li><a href="#">Privacy</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="footer-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="copyright-wrap">
@@ -219,14 +180,10 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="copyright-text">
-                                <p>Copyright &copy; 2021. All Rights Reserved By <a href="index-2.html">Movie Cave</a></p>
+                                <p>Copyright &copy; 2023. All Rights Reserved By <a href="{{ url_for('home_bp.index') }}">Movie Cave</a></p>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="payment-method-img text-center text-md-right">
-                                <img src="img/images/card_img.png" alt="img">
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
