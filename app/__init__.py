@@ -5,9 +5,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 
 db = SQLAlchemy()
 migrate = Migrate(db)
+login = LoginManager()
+login.login_view = 'auth_bp.login'
 
 # Avoid a circular import
 from .config import BaseConfig
@@ -20,6 +23,7 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
+    login.init_app(app)
 
     with app.app_context():
         from .errors import error_bp

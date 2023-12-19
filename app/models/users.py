@@ -3,12 +3,13 @@
 """This module contains the User model class"""
 
 from typing import Optional
-from app import db
+from app import db, login
 import sqlalchemy as sa
 import sqlalchemy.orm as so
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'users' 
     # SQLAlchemy requires this sort of static typing thing
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
@@ -35,3 +36,8 @@ def check_password(self, password):
 class SuperUser(User):
     """The admin class"""
     pass
+
+
+@login.user_loader
+def load_user(id):
+    return db.session.query(User).get(int(id))

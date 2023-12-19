@@ -9,6 +9,7 @@ class BaseConfig:
     
     Use a SQLite database for early development.
     """
+    SECRET_KEY = environ.get("SECRET_KEY") or "someRandom$tring"
     SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL') or \
         'sqlite:///' + path.join(path.dirname(__file__), 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
